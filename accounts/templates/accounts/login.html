@@ -1,24 +1,61 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="container mt-5">
+<style>
+    body {
+        background-image: url("{% static 'images/background.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .form-signin {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-signin h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #4c6ef5;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-custom {
+        background-color: #4c6ef5;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .btn-custom:hover {
+        background-color: #3b5bdb;
+    }
+
+    .text-center a {
+        color: #4c6ef5;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
-            <div class="card shadow-lg border-0 rounded-lg">
-                <div class="card-body">
-                    <h1 class="h3 mb-3 text-center" style="color: rgb(102, 102, 228); font-weight: bold;">SAFE-TECH</h1>
-                    <form method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary w-100 mt-1">로그인</button>
-                    </form>
-                    <p class="text-center mt-3">계정이 없으신가요? <a href="{% url 'signup' %}">회원가입</a></p>
-                </div>
+            <div class="form-signin">
+                <h1 class="mb-3 text-center">SAFE-TECH</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-custom w-100 mt-3">로그인</button>
+                </form>
+                <p class="text-center mt-3">계정이 없으신가요? <a href="{% url 'signup' %}">회원가입</a></p>
             </div>
         </div>
     </div>
 </div>
 {% endblock %}
-
-
-
