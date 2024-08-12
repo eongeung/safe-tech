@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Safe_Tech-카메라 관리</title>
-</head>
-<body>
-    <h1>카메라 관리</h1>
-    <p>카메라 관리 업데이트 예정</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-body">
+                    <h2 class="text-center mb-4" style="font-weight: 700;">카메라 관리</h2>
+                    <p class="text-center text-muted">카메라 관리 업데이트 예정</p>
+                    <div class="text-center mt-5">
+                        <div class="cctv-feed">
+                            <p class="text-muted">실시간 CCTV 피드가 여기 표시됩니다.</p>
+                            <img src="https://via.placeholder.com/600x400" alt="CCTV Feed" class="img-fluid rounded">
+                        </div>
+                    </div>
+                    <!-- 상하좌우 버튼 추가 -->
+                    <div class="text-center mt-4">
+                        <div class="btn-group-vertical me-2">
+                            <button class="btn btn-secondary"><i class="bi bi-arrow-up"></i></button>
+                        </div>
+                        <div class="btn-group me-2">
+                            <button class="btn btn-secondary"><i class="bi bi-arrow-left"></i></button>
+                            <button class="btn btn-secondary"><i class="bi bi-arrow-right"></i></button>
+                        </div>
+                        <div class="btn-group-vertical">
+                            <button class="btn btn-secondary"><i class="bi bi-arrow-down"></i></button>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary">카메라 피드 재생</button>
+                        <button class="btn btn-secondary">설정</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

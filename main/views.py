@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from .forms import InquiryForm
 
 @login_required
 def home(request):
@@ -16,7 +17,15 @@ def camera_integration(request):
 
 @login_required
 def notifications(request):
-    return render(request, 'notifications.html')
+    if request.method == 'POST':
+        form = InquiryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('notifications') 
+    else:
+        form = InquiryForm()
+    
+    return render(request, 'notifications.html', {'form': form})
 
 def signup_view(request):
     if request.method == 'POST':

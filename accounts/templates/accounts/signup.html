@@ -1,21 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>회원가입</h1>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">회원가입</button>
-</form>
-{% if form.errors %}
-    <ul>
-    {% for field in form %}
-        {% for error in field.errors %}
-            <li>{{ field.label }}: {{ error }}</li>
-        {% endfor %}
-    {% endfor %}
-    </ul>
-{% endif %}
-<p>이미 계정이 있으신가요? <a href="{% url 'login' %}">로그인</a></p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-body">
+                    <h1 class="h3 mb-3 text-center">회원가입</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary w-100 mt-3">회원가입</button>
+                    </form>
+                    {% if form.errors %}
+                        <div class="alert alert-danger mt-3">
+                            <ul class="mb-0">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <p class="text-center mt-3">이미 계정이 있으신가요? <a href="{% url 'login' %}">로그인</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
-

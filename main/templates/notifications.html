@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Safe_Tech-공지사항</title>
-</head>
-<body>
-    <h1>알림</h1>
-    <p>1:1 문의사항 등 남길 일이 있으면 남겨주세요</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-body">
+                    <h2 class="text-center mb-4" style="font-weight: 700;">알림</h2>
+                    <p class="text-center text-muted mb-4">1:1 문의사항 등 남길 일이 있으면 남겨주세요</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="message" class="form-label">Message:</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-100">제출</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
